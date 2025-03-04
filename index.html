@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #ff426e, #fd4e30);
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            position: relative;
+        }
+        .logo {
+            background: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            position: absolute;
+            top: 20px;
+        }
+        h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 18px;
+            max-width: 600px;
+        }
+        .enter-button {
+            margin-top: 20px;
+            padding: 12px 24px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(45deg, #ff8c00, #ff2a6d);
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            position: fixed;
+            bottom: 50px;
+        }
+        .enter-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+        }
+        #nameDisplay {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <button class="enter-button" id="enterButton">Enter</button>
+    <div id="nameDisplay"></div>
+    
+    <script>
+        document.getElementById("enterButton").addEventListener("click", function() {
+            const name = "Harshit Bauddh";
+            const nameDisplay = document.getElementById("nameDisplay");
+            nameDisplay.innerHTML = "";
+            
+            let index = 0;
+            clearInterval(window.nameInterval); // Clear any previous interval to avoid overlapping
+            
+            window.nameInterval = setInterval(() => {
+                if (index < name.length) {
+                    nameDisplay.innerHTML += name[index];
+                    index++;
+                } else {
+                    clearInterval(window.nameInterval);
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
